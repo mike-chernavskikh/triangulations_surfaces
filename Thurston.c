@@ -4,13 +4,13 @@
 int main(void)
 {
     int m;
-    int * ar;
-    int * ar2;
-    ar = (int *) malloc(1000 * sizeof(int));
-    ar2 = (int *) malloc(1000 * sizeof(int));
+    double * ar;
+    double * ar2;
+    ar = (double *) malloc(1000 * sizeof(double));
+    ar2 = (double *) malloc(1000 * sizeof(double));
     for (m = 1; m < 400; m ++)
     {
-        int sum = 0;
+        double sum = 0;
         int i, j, k, n, i_squared, j_squared, n_squared, big_number;
         // цикл по n
         for (n = 0; n <= m + 2; n++)
@@ -71,18 +71,18 @@ int main(void)
             }
         };
         ar[m] = sum;
-        printf("%d %d\n", m, sum);
+        printf("%d %lf\n", m, sum);
     }
 
     //Усреднение по отрезку длины 50
     for (int l = 25; l < 375; l++)
     {
-        int s = 0;
+        double s = 0;
         s = ar[l];
         for (int p = -25; p < 25; p ++)
             s += ar[l + p];
         s /= 50;
         ar2[l] = s;
-        printf("%d %d\n", l, s);
+        printf("%d %lf\n", l, s);
     }
 }
