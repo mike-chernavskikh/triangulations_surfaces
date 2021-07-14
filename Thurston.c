@@ -85,4 +85,7 @@ int main(void)
         ar2[l] = s;
         printf("%d %lf\n", l, s);
     }
+    free(ar);
+    free(ar2);
+    return 0;
 }
