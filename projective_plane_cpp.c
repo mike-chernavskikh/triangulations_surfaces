@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Greatest Common Divisor
 int gcd(int a, int b)
 {
     if (b == 0)
@@ -12,7 +11,7 @@ int gcd(int a, int b)
 
 int main(void)
 {   
-    int n = 30;
+    int n = 40;
     int * ar;
     ar = (int *)malloc(18 * n * n * n * n * n * n * sizeof(int));
     int mod_z = 0;
@@ -26,12 +25,13 @@ int main(void)
                     //z = x + y*\omega
                     mod_z = x * x + x * y + y * y;
                     for (int a = 1; a < n; a++)
-                        for (int b = 1; b < n; b++)
-                            for (int c = 1; c < n; c++)
-                                for (int d = 1; d < n; d++)
+                        for (int b = 1; b <= a; b++)
+                            for (int c = 1; c <= b; c++)
+                                for (int d = 1; d <= c; d++)
                                     ar[mod_z * (a * b + a * c + a * d + b * c + b * d + c * d)] += 1;
                 }
-    for (int i = 0; i < 100; i ++) printf("%d, %d\n", i, ar[i]);
+    //Вывод 100 первых значений 
+    for (int i = 0; i < 200; i ++) printf("%d, %d, \n", i, ar[i]);
     free(ar);
 return 0;
 }             
